@@ -1,0 +1,76 @@
+package New;
+
+import java.util.ArrayList;
+import java.util.List;
+
+// Base class
+class Vehicle {
+    protected String name;
+
+    public Vehicle(String name) {
+        this.name = name;
+    }
+
+    public String start() {
+        return name + " is starting.";
+    }
+}
+
+
+class Car extends Vehicle {
+    public Car(String name) {
+        super(name);
+    }
+
+    @Override
+    public String start() {
+        return name + " (Car) is revving up!";
+    }
+}
+
+
+class Bike extends Vehicle {
+    public Bike(String name) {
+        super(name);
+    }
+
+    @Override
+    public String start() {
+        return name + " (Bike) is ready to go!";
+    }
+}
+
+
+class Garage {
+    private List<Vehicle> vehicles;
+
+    public Garage() {
+        this.vehicles = new ArrayList<>();
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        vehicles.add(vehicle);
+    }
+
+    public void startAllVehicles() {
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle.start());
+        }
+    }
+}
+
+
+public class Module7 {
+    public static void main(String[] args) {
+        Garage garage = new Garage();
+
+        Vehicle car = new Car("Toyota");
+        Vehicle bike = new Bike("Yamaha");
+
+        garage.addVehicle(car);
+        garage.addVehicle(bike);
+
+        System.out.println("Starting all vehicles in the garage:");
+        garage.startAllVehicles();
+    }
+}
