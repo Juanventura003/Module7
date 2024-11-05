@@ -3,7 +3,6 @@ package New;
 import java.util.ArrayList;
 import java.util.List;
 
-// Base class
 class Vehicle {
     protected String name;
 
